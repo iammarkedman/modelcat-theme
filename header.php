@@ -38,6 +38,8 @@
 
   <link rel="stylesheet/less" type="text/css" href="<?php bloginfo( 'template_url'); ?>/css/site.less" />
   <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 
 <body <?php body_class(); ?>>

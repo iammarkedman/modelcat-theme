@@ -9,6 +9,8 @@
 
     <div class="row">
       <div class="col-4">
+        <div class="single-favorite" data-id="<?php echo $post->ID; ?>"></div>
+
         <dl>
           <?php
             $meta = get_post_meta( $post->ID );
