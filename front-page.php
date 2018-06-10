@@ -1,11 +1,7 @@
 <?php get_header(); ?>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
-      Col
-    </div>
-  </div> <!-- .row -->
-</div> <!-- .container -->
+<?php include("elements/search-bar.php"); ?>
+
+<div id="results"></div>
 
 <?php get_footer(); ?>
