@@ -8,7 +8,7 @@
    */
   $(document).ready( function() {
     $("button.modelcat-runsearch").click( function() {
-      $("#results").modelcatSearch();
+      $("#results").modelcatSearch({ form: "#searchForm" });
     });
   });
 
