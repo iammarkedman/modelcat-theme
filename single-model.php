@@ -2,9 +2,18 @@
 
 <?php while( have_posts() ): the_post(); ?>
 
+  <?php
+    $names = preg_split("/[\ ]+/", $post->post_title);
+    if( count($names) < 2 ) {
+      $model_name = $names[0];
+    } else {
+      $model_name = $names[0] . " " . substr($names[count($names)-1], 0, 1);
+    }
+  ?>
+
   <div class="container">
     <div class="row">
-      <h1><?php the_title(); ?></h1>
+      <h1><?php echo $model_name; ?></h1>
     </div>
 
     <div class="row">
@@ -40,7 +49,7 @@
           if( $thumb_id ) {
             $imgurl_full = wp_get_attachment_image_src( $thumb_id, "full" );
             ?>
-            <img src="<?php echo $imgurl_full[0]; ?>" alt="<?php the_title(); ?>" class="img-fluid"/>
+            <img src="<?php echo $imgurl_full[0]; ?>" alt="<?php echo $model_name; ?>" class="img-fluid"/>
             <?php 
           }
         ?>
@@ -57,7 +66,7 @@
           }
           ?>
             <div class="col-4">
-              <img src="<?php echo $img["full"]; ?>" alt="<?php the_title(); ?>" class="img-fluid"/>
+              <img src="<?php echo $img["full"]; ?>" alt="<?php echo $model_name; ?>" class="img-fluid"/>
             </div>
           <?php
           if( ++$i == 2 ) {

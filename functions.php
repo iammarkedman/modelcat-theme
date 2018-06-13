@@ -1,6 +1,8 @@
 <?php
 	// enables wigitized sidebars
 	if ( function_exists('register_sidebar') )
+	{
+	}
 
   /*
 	// Sidebar Widget
