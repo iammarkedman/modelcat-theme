@@ -8,6 +8,14 @@
    */
   $(document).ready( function() {
     // init favorites
+    $(document).on("selectionChanged", function() {
+      $("#modelcatSelectedFloater").updateModelSelection();
+    });
+    $("#modelcatSelectedFloater a.clear-selected").click( function(e) {
+      e.preventDefault();
+      $.clearSelectedModels();
+    });
+
     if( localStorage.getItem("fav") == null ) {
       localStorage.setItem("fav", JSON.stringify([]));
     } else {

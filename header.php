@@ -23,7 +23,7 @@
 	<meta name="description" content="<?php wp_title(''); echo ' &ndash; '; bloginfo( 'description' ); ?>" />
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no" />
 
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 

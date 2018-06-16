@@ -83,7 +83,7 @@ div.item-holder {
 
   &:hover {
     div.overlay-holder {
-      bottom:0;
+      .opacity(1.0);
     }
   }
 
@@ -103,22 +103,25 @@ div.item-holder {
 
   div.overlay-holder {
     position:absolute;
-    bottom:-34px;
+    top:0;
     width:100%;
+    .opacity(0);
 
-    .transition-properties(bottom .20s ease-out);
+    .transition-properties(opacity .20s ease-out);
 
     div.overlay {
+      position:relative;
       width:100%;
-      background:rgba(255,255,255,0.85);
+      background:rgba(255,255,255,0.75);
       padding:8px 20px 8px 20px;
       text-align:center;
+      height:300px;
 
       ul {
+      .vertical-align;
         list-style:none;
         margin:0;
         padding:0;
-        font-size:12px;
       }
     }
   }
@@ -137,5 +140,46 @@ div.single-favorite {
   font-size:24px;
   margin-bottom:20px;
   cursor:pointer;
+}
+
+
+/* ======================================================================= */
+/*                                                                         */
+/* FOOTER FLOATER                                                          */
+/*                                                                         */
+/* ======================================================================= */
+
+div#modelcatSelectedFloater {
+  position:fixed;
+  bottom:-104px;
+  width:100%;
+  padding:40px 0;
+  background-color:#000;
+  color:#eee;
+  -webkit-transform: translateZ(0);
+  .transition-properties(bottom .15s ease-out);
+
+  &.anySelected {
+    bottom:0px;
+  }
+
+  a.clear-selected {
+    margin-left:20px;
+  }
+
+  .col-4 {
+    text-align:right;
+  }
+}
+
+
+/* ======================================================================= */
+/*                                                                         */
+/* FOOTER                                                                  */
+/*                                                                         */
+/* ======================================================================= */
+
+div.footerMargin {
+  padding-bottom:200px;
 }
 
