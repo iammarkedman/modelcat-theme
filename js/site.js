@@ -20,6 +20,8 @@
       }
     }
 
+    $.modelcatInitFavorites($("#results"));
+
     var $singleFav = $(".single-favorite");
     if( $singleFav.length > 0 ) {
       $singleFav.bindSingleFavorite();

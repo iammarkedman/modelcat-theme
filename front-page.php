@@ -4,7 +4,13 @@
 
     <?php include("elements/search-bar.php"); ?>
 
-    <div id="results"></div>
+    <div id="results">
+      <?php
+        if( function_exists('modelcat_runsearch')) {
+          modelcat_runsearch();
+        }
+      ?>
+    </div>
 
   </div>
 
