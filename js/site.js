@@ -7,10 +7,6 @@
    * document.ready
    */
   $(document).ready( function() {
-    $("button.modelcat-runsearch").click( function() {
-      $("#results").modelcatSearch({ form: "#searchForm" });
-    });
-
     // init favorites
     if( localStorage.getItem("fav") == null ) {
       localStorage.setItem("fav", JSON.stringify([]));
@@ -29,11 +25,8 @@
       $singleFav.bindSingleFavorite();
     }
 
-    // results in localstorage?
-    var results = localStorage.getItem("res");
-    if( results ) {
-      $("#results").renderSearchResults( JSON.parse( results ));
-    }
+    // init searchbar
+    $("#searchForm").modelcatInitSearchForm({ results: "#results" });
   });
 
 })(jQuery);

@@ -39,6 +39,36 @@
   transition: @arguments;
 }
 
+
+/* ======================================================================= */
+/*                                                                         */
+/* SEARCH BAR                                                              */
+/*                                                                         */
+/* ======================================================================= */
+
+ul.searchform {
+  .noselect;
+  list-style:none;
+  padding-top:40px;
+  padding-bottom:40px;
+
+  li {
+    display:inline-block;
+    margin-right:12px;
+
+    input[type="checkbox"] {
+      position:relative;
+      top:-2px;
+      margin-right:2px;
+    }
+
+    &.t {
+      font-weight:bold;
+    }
+  }
+}
+
+
 /* ======================================================================= */
 /*                                                                         */
 /* SEARCH RESULTS                                                          */
@@ -94,6 +124,7 @@ div.item-holder {
     }
   }
 }
+
 
 /* ======================================================================= */
 /*                                                                         */

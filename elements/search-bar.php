@@ -2,16 +2,23 @@
 
 <div class="row">
   <div class="col-sm">
-    <input type="checkbox" id="s_gender_female" name="s[gender_female]" value="1"/> <label for="s_gender_female">Female</label>
-    <input type="checkbox" id="s_gender_male" name="s[gender_male]" value="1"/> <label for="s_gender_male">Male</label>
+    <ul class="searchform">
+      <li class="t">Gender:</li>
+
+      <?php
+        if( function_exists('modelcat_getsearchparams')) {
+          $p = modelcat_getsearchparams();
+        } else {
+          $p = array( "gender" => "all" );
+        }
+      ?>
+
+      <li><input type="checkbox" class="searchGender" id="g_all" data-query="gender" data-val="all" <?php if($p["gender"] === "all") { echo 'checked="true"'; } ?>/> <label for="g_all">All</label></li>
+      <li><input type="checkbox" class="searchGender" id="g_female" data-query="gender" data-val="female" <?php if($p["gender"] === "female") { echo 'checked="true"'; } ?>/> <label for="g_female">Female</label></li>
+      <li><input type="checkbox" class="searchGender" id="g_male" data-query="gender" data-val="male" <?php if($p["gender"] === "male") { echo 'checked="true"'; } ?>/> <label for="g_male">Male</label></li>
+    </ul>
   </div>
 </div> <!-- .row -->
 
 </form>
-
-<div class="row">
-  <div class="col-sm">
-    <button class="modelcat-runsearch">Search</button>
-  </div>
-</div> <!-- .row -->
 
