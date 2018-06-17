@@ -40,6 +40,28 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+  <!-- responsive nav -->
+  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/responsive-nav.css">
+    <script src="<?php bloginfo('template_url'); ?>/js/vendor/responsive-nav.min.js"></script>
 </head>
 
 <body <?php body_class(); ?>>
+
+  <div class="container hdr clearfix">
+    <div class="row logo">
+      <div class="col-12">
+        <h1 class="float-right">AGENCY AGENCY</h1>
+      </div>
+    </div> <!-- .row -->
+
+    <nav class="nav-collapse float-right">
+      <?php
+        wp_nav_menu( array(
+          'menu' => 'main-nav',
+          'container' => ''
+        ));
+        ?>
+	  </nav>
+  </div> <!-- .container -->
+

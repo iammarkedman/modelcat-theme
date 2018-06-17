@@ -1,3 +1,5 @@
+@textCol: #000;
+
 /* ======================================================================= */
 /*                                                                         */
 /* MIXINS                                                                  */
@@ -42,6 +44,68 @@
 
 /* ======================================================================= */
 /*                                                                         */
+/* HTML                                                                    */
+/*                                                                         */
+/* ======================================================================= */
+
+.logo h1 {
+  margin-bottom:10px;
+}
+
+h1 {
+  margin-bottom:20px;
+  text-transform:uppercase;
+}
+
+h2 {
+  margin-bottom:40px;
+}
+
+h3 {
+  margin-top:30px;
+  margin-bottom:20px;
+}
+
+/* ======================================================================= */
+/*                                                                         */
+/* HEADER                                                                  */
+/*                                                                         */
+/* ======================================================================= */
+
+div.hdr {
+  margin-top:40px;
+
+  nav {
+    margin-bottom:40px;
+
+    ul {
+      list-style:none;
+      margin:0;
+      padding:0;
+
+      li {
+        display:inline;
+        margin-left:8px;
+
+        a {
+          color:@textCol;
+          text-transform:uppercase;
+          &:hover {
+            text-decoration:none;
+          }
+        }
+
+        &.current-menu-item a {
+          border-bottom:2px solid @textCol;
+        }
+      }
+    }
+  }
+}
+
+
+/* ======================================================================= */
+/*                                                                         */
 /* SEARCH BAR                                                              */
 /*                                                                         */
 /* ======================================================================= */
@@ -49,7 +113,7 @@
 ul.searchform {
   .noselect;
   list-style:none;
-  padding:40px 0;
+  padding:0;
 
   li {
     display:inline-block;
@@ -74,9 +138,12 @@ ul.searchform {
 /*                                                                         */
 /* ======================================================================= */
 
+div.result-item {
+  margin-bottom:40px;
+}
+
 div.item-holder {
   position:relative;
-  height:385px;
 
   a {
     color:#333;
@@ -103,7 +170,7 @@ div.item-holder {
 
   div.item-img {
     position:relative;
-    height:385px;
+    max-height:385px;
     overflow:hidden;
   }
 
@@ -121,6 +188,7 @@ div.item-holder {
       background:rgba(255,255,255,0.75);
       padding:8px 20px 8px 20px;
       text-align:center;
+      font-size:32px;
       height:385px;
 
       ul {
@@ -133,6 +201,43 @@ div.item-holder {
   }
 }
 
+/* ======================================================================= */
+/*                                                                         */
+/* SELECTED MODELS                                                         */
+/*                                                                         */
+/* ======================================================================= */
+
+div.selected-model {
+  margin-top:20px;
+
+  a {
+    color:@textCol;
+    &:hover {
+      color:@textCol;
+      text-decoration:none;
+    }
+
+    &.remove {
+      color:#c00;
+    }
+  }
+
+  div.item-img {
+    position:relative;
+
+    div.corner {
+      position:absolute;
+      top:0px;
+      right:0px;
+      width:16px;
+      height:16px;
+      background-image:url(../img/corner.png);
+      background-repeat:none;
+      background-size:cover;
+    }
+  }
+}
+
 
 /* ======================================================================= */
 /*                                                                         */
@@ -141,7 +246,6 @@ div.item-holder {
 /* ======================================================================= */
 
 div.container.model-page {
-  margin-top:40px;
 }
 
 div.model-info {
@@ -201,7 +305,7 @@ div#modelcatSelectedFloater {
   position:fixed;
   bottom:-104px;
   width:100%;
-  padding:40px 0;
+  padding:20px 0;
   background-color:#000;
   color:#eee;
   -webkit-transform: translateZ(0);

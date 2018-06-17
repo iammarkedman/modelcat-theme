@@ -45,6 +45,11 @@
         $(".polaroid").find("img").attr("src", imgurl);
       });
     });
+
+    // init selected models page
+    if( $(".selected-models").length > 0 ) {
+      $("a.remove").modelcatSelectedRemove();
+    }
   });
 
 })(jQuery);
