@@ -47,7 +47,7 @@
         <?php
           $thumb_id = get_post_thumbnail_id( $post->ID );
           if( $thumb_id ) {
-            $imgurl_full = wp_get_attachment_image_src( $thumb_id, "full" );
+            $imgurl_full = wp_get_attachment_image_src( $thumb_id, "model-polaroid" );
             ?>
             <img src="<?php echo $imgurl_full[0]; ?>" alt="<?php echo $model_name; ?>" class="img-fluid"/>
             <?php 

@@ -1,22 +1,9 @@
 <?php
-	// enables wigitized sidebars
-	if ( function_exists('register_sidebar') )
-	{
-	}
-
-  /*
-	// Sidebar Widget
-	// Location: the sidebar
-	register_sidebar(array('name'=>'Sidebar',
-		'before_widget' => '<div class="widget-area widget-sidebar"><ul>',
-		'after_widget' => '</ul></div>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>',
-	));
-  */
-
 	// post thumbnail support
 	add_theme_support( 'post-thumbnails' );
+
+  add_image_size( 'model-thumb', 700, 770, true );
+  add_image_size( 'model-polaroid', 768, 1024, true );
 
 	// custom menu support
 	add_theme_support( 'menus' );

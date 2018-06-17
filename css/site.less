@@ -76,6 +76,7 @@ ul.searchform {
 
 div.item-holder {
   position:relative;
+  height:385px;
 
   a {
     color:#333;
@@ -87,17 +88,22 @@ div.item-holder {
     }
   }
 
-  div.heart {
+  div.corner {
     position:absolute;
-    top:12px;
-    right:16px;
-    color:#fff;
-    font-size:24px;
-    cursor:pointer;
+    top:0px;
+    right:0px;
+    width:32px;
+    height:32px;
+
+    &.folded {
+      background-image:url(../img/corner.png);
+      background-repeat:none;
+    }
   }
 
   div.item-img {
     position:relative;
+    height:385px;
     overflow:hidden;
   }
 
@@ -115,7 +121,7 @@ div.item-holder {
       background:rgba(255,255,255,0.75);
       padding:8px 20px 8px 20px;
       text-align:center;
-      height:300px;
+      height:385px;
 
       ul {
       .vertical-align;
