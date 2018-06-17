@@ -140,12 +140,54 @@ div.item-holder {
 /*                                                                         */
 /* ======================================================================= */
 
+div.container.model-page {
+  margin-top:40px;
+}
+
+div.model-info {
+  dl {
+    dt {
+      float:left;
+      margin-right:0.4em;
+      font-weight:normal;
+    }
+  }
+
+  div.polaroid-thumb {
+    cursor:pointer;
+    .transition-properties(opacity .20s ease-out);
+
+    &:hover {
+      .opacity(0.75);
+    }
+  }
+}
+
+div.polaroid {
+  position:relative;
+
+  div.single-corner {
+    position:absolute;
+    top:0px;
+    right:15px;
+    width:32px;
+    height:32px;
+
+    &.folded {
+      background-image:url(../img/corner.png);
+      background-repeat:none;
+    }
+  }
+}
+
 div.single-favorite {
   .noselect;
 
-  font-size:24px;
+  font-size:18px;
   margin-bottom:20px;
   cursor:pointer;
+
+  i { margin-right:4px; }
 }
 
 

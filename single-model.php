@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<?php $_store_mainimg = null; ?>
+
 <?php while( have_posts() ): the_post(); ?>
 
   <?php
@@ -11,13 +13,24 @@
     }
   ?>
 
-  <div class="container">
+  <div class="container model-page">
     <div class="row">
-      <h1><?php echo $model_name; ?></h1>
-    </div>
+      <div class="col-6 offset-md-1 polaroid">
+        <?php
+          $thumb_id = get_post_thumbnail_id( $post->ID );
+          if( $thumb_id ) {
+            $imgurl_full = wp_get_attachment_image_src( $thumb_id, "model-polaroid" );
+            $_store_mainimg = $imgurl_full[0];
+            ?>
+            <img src="<?php echo $imgurl_full[0]; ?>" alt="<?php echo $model_name; ?>" class="img-fluid"/>
+            <?php 
+          }
+        ?>
+        <div class="single-corner"></div>
+      </div> <!-- .col-8 -->
 
-    <div class="row">
-      <div class="col-4">
+      <div class="col-3 model-info">
+        <h2><?php echo $model_name; ?></h2>
         <div class="single-favorite" data-id="<?php echo $post->ID; ?>"></div>
 
         <dl>
@@ -42,43 +55,45 @@
             }
           ?>
         </dl>
-      </div> <!-- .div-4 -->
-      <div class="col-8">
+
         <?php
-          $thumb_id = get_post_thumbnail_id( $post->ID );
-          if( $thumb_id ) {
-            $imgurl_full = wp_get_attachment_image_src( $thumb_id, "model-polaroid" );
-            ?>
-            <img src="<?php echo $imgurl_full[0]; ?>" alt="<?php echo $model_name; ?>" class="img-fluid"/>
-            <?php 
+          // -------------------------------
+          // more featured photos?
+          //
+          if( class_exists('Dynamic_Featured_Image') ) {
+            global $dynamic_featured_image;
+            $featured_images = $dynamic_featured_image->get_featured_images();
+            $first_pic = true;
+
+            foreach( $featured_images as $img ): ?>
+              <?php 
+                if( $first_pic ) {
+                  $thumb_id = get_post_thumbnail_id( $post->ID );
+                  if( $thumb_id ) {
+                    $imgurl_thumb = wp_get_attachment_image_src( $thumb_id, "model-thumb" );
+                    ?>
+                      <div class="row no-gutters">
+                        <div class="col-6 polaroid-thumb" data-imgurl="<?php echo $_store_mainimg; ?>">
+                          <img src="<?php echo $imgurl_thumb[0]; ?>" alt="<?php echo $model_name; ?>" class="img-fluid"/>
+                        </div>
+                      </div>
+                    <?php 
+                  }
+                  $first_pic = false;
+                }
+              ?>
+
+              <div class="row no-gutters">
+                <div class="col-6 polaroid-thumb" data-imgurl="<?php echo $img["full"]; ?>">
+                  <img src="<?php echo $img["thumb"]; ?>" alt="<?php echo $model_name; ?>" class="img-fluid"/>
+                </div>
+              </div>
+            <?php endforeach;
           }
         ?>
-      </div> <!-- .col-8 -->
+      </div> <!-- .div-4 -->
     </div> <!-- .row -->
 
-    <?php
-      if( class_exists('Dynamic_Featured_Image') ) {
-        global $dynamic_featured_image;
-        $featured_images = $dynamic_featured_image->get_featured_images();
-        foreach( $featured_images as $img ) {
-          if( $i == 0 ) {
-            echo '<div class="row">';
-          }
-          ?>
-            <div class="col-4">
-              <img src="<?php echo $img["full"]; ?>" alt="<?php echo $model_name; ?>" class="img-fluid"/>
-            </div>
-          <?php
-          if( ++$i == 2 ) {
-            echo '</div>';
-            $i = 0;
-          }
-        }
-        if( $i > 0 ) {
-          echo '</div>';
-        }
-      }
-    ?>
   </div>
 
 <?php endwhile; ?>

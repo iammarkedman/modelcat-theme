@@ -37,6 +37,14 @@
 
     // init searchbar
     $("#searchForm").modelcatInitSearchForm({ results: "#results" });
+
+    // single model page img switching
+    $(".polaroid-thumb").each( function() {
+      $(this).click( function() {
+        var imgurl = $(this).data("imgurl");
+        $(".polaroid").find("img").attr("src", imgurl);
+      });
+    });
   });
 
 })(jQuery);
