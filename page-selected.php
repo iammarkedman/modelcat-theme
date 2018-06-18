@@ -3,13 +3,13 @@
 <div class="container selected-models">
 
   <div class="row">
-    <div class="col">
+    <div class="col-md-8 offset-md-2">
       <h1>Selected models</h1>
     </div>
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-md-8 offset-md-2">
       <?php while( have_posts() ): the_post(); ?>
         <?php the_content(); ?>
       <?php endwhile; ?>
