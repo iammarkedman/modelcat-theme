@@ -49,6 +49,9 @@
     // init selected models page
     if( $(".selected-models").length > 0 ) {
       $("a.remove").modelcatSelectedRemove();
+
+      // check if favs changed
+      $.modelcatSelectedCheckChange();
     }
   });
 

@@ -1,5 +1,5 @@
   <div class="row">
-    <div class="col">
+    <div class="col-md-8 offset-md-2">
       No models selected.
     </div>
   </div>
