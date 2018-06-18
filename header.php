@@ -36,7 +36,7 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" />
 
-  <link rel="stylesheet/less" type="text/css" href="<?php bloginfo( 'template_url'); ?>/css/site.less" />
+  <link rel="stylesheet/less" type="text/css" href="<?php bloginfo( 'template_url'); ?>/css/site.less?v=0.0.1" />
   <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -49,13 +49,10 @@
 <body <?php body_class(); ?>>
 
   <div class="container hdr clearfix">
-    <div class="row logo">
-      <div class="col-12">
-        <h1 class="float-right">AGENCY AGENCY</h1>
-      </div>
-    </div> <!-- .row -->
+    <div class="logo">KATU AGENCY</div>
+    <div class="logofix"></div>
 
-    <nav class="nav-collapse float-right">
+    <nav class="nav-collapse">
       <?php
         wp_nav_menu( array(
           'menu' => 'main-nav',

@@ -48,11 +48,8 @@
 /*                                                                         */
 /* ======================================================================= */
 
-.logo h1 {
-  margin-bottom:10px;
-}
-
 h1 {
+  margin-top:40px;
   margin-bottom:20px;
   text-transform:uppercase;
 }
@@ -75,7 +72,19 @@ h3 {
 div.hdr {
   margin-top:40px;
 
+  .logo {
+    margin-bottom:10px;
+    font-size:36px;
+    font-weight:bold;
+    float:right;
+  }
+
+  .logofix {
+    clear:right;
+  }
+
   nav {
+    float:right;
     margin-bottom:40px;
 
     ul {
@@ -101,7 +110,42 @@ div.hdr {
       }
     }
   }
+
+  a.nav-toggle {
+    img {
+      width:36px;
+    }
+  }
 }
+
+@media screen and (max-width: 767px) {
+  div.hdr {
+    .logofix {
+      clear:none !important;
+    }
+
+    a.nav-toggle {
+      margin-top:10px;
+      float:left;
+    }
+
+    nav {
+      width:100%;
+      ul {
+        li {
+          display:block;
+          margin-left:0;
+          text-align:center;
+          margin-bottom:12px;
+
+          a {
+            font-size:28px;
+          }
+        }
+      }
+    }
+  }
+} 
 
 
 /* ======================================================================= */
@@ -199,6 +243,16 @@ div.item-holder {
       }
     }
   }
+}
+
+@media screen and (min-width: 768px) {
+  div.item-holder div.overlay-holder div.overlay { height:231px; font-size:20px; }
+}
+@media screen and (min-width: 992px) {
+  div.item-holder div.overlay-holder div.overlay { height:319px; font-size:26px; }
+}
+@media screen and (min-width: 1200px) {
+  div.item-holder div.overlay-holder div.overlay { height:385px; font-size:32px; }
 }
 
 /* ======================================================================= */
@@ -322,6 +376,24 @@ div#modelcatSelectedFloater {
   .col-4 {
     text-align:right;
   }
+
+  .container.mobile {
+    .col-6:first-child {
+      position:relative;
+      top:-12px;
+      font-size:12px;
+
+      a.clear-selected {
+        margin-left:0;
+      }
+    }
+
+    .col-6:nth-child(2) {
+      position:relative;
+      top:-8px;
+      text-align:right;
+    }
+  }
 }
 
 
@@ -335,3 +407,8 @@ div.footerMargin {
   padding-bottom:200px;
 }
 
+@media screen and (max-width: 767px) {
+  div.footerMargin {
+    padding-bottom:80px;
+  }
+}

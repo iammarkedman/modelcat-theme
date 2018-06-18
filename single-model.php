@@ -14,8 +14,13 @@
   ?>
 
   <div class="container model-page">
+    <div class="row d-block d-md-none">
+      <div class="col">
+        <h1><?php echo $model_name; ?></h1>
+      </div>
+    </div>
     <div class="row">
-      <div class="col-6 offset-md-1 polaroid">
+      <div class="col-md-6 offset-md-1 polaroid">
         <?php
           $thumb_id = get_post_thumbnail_id( $post->ID );
           if( $thumb_id ) {
@@ -29,8 +34,8 @@
         <div class="single-corner"></div>
       </div> <!-- .col-8 -->
 
-      <div class="col-3 model-info">
-        <h2><?php echo $model_name; ?></h2>
+      <div class="col-md-3 model-info">
+        <h2 class="d-none d-md-block"><?php echo $model_name; ?></h2>
         <div class="single-favorite" data-id="<?php echo $post->ID; ?>"></div>
 
         <dl>
@@ -72,8 +77,8 @@
                   if( $thumb_id ) {
                     $imgurl_thumb = wp_get_attachment_image_src( $thumb_id, "model-thumb" );
                     ?>
-                      <div class="row no-gutters">
-                        <div class="col-6 polaroid-thumb" data-imgurl="<?php echo $_store_mainimg; ?>">
+                      <div class="row no-gutters d-none d-md-block">
+                        <div class="col-md-6 polaroid-thumb" data-imgurl="<?php echo $_store_mainimg; ?>">
                           <img src="<?php echo $imgurl_thumb[0]; ?>" alt="<?php echo $model_name; ?>" class="img-fluid"/>
                         </div>
                       </div>
@@ -84,8 +89,11 @@
               ?>
 
               <div class="row no-gutters">
-                <div class="col-6 polaroid-thumb" data-imgurl="<?php echo $img["full"]; ?>">
+                <div class="col-md-6 polaroid-thumb d-none d-md-block" data-imgurl="<?php echo $img["full"]; ?>">
                   <img src="<?php echo $img["thumb"]; ?>" alt="<?php echo $model_name; ?>" class="img-fluid"/>
+                </div>
+                <div class="col d-block d-md-none">
+                  <img src="<?php echo $img["full"]; ?>" alt="<?php echo $model_name; ?>" class="img-fluid"/>
                 </div>
               </div>
             <?php endforeach;
