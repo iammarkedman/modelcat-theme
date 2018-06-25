@@ -2,25 +2,9 @@
 <html class="no-js" <?php language_attributes(); ?>>
 
 <head>
-	<title><?php if ( is_category() ) {
-		echo 'Category Archive for &quot;'; single_cat_title(); echo '&quot; | '; bloginfo( 'name' );
-	} elseif ( is_tag() ) {
-		echo 'Tag Archive for &quot;'; single_tag_title(); echo '&quot; | '; bloginfo( 'name' );
-	} elseif ( is_archive() ) {
-		wp_title(''); echo ' Archive | '; bloginfo( 'name' );
-	} elseif ( is_search() ) {
-		echo 'Search for &quot;'.wp_specialchars($s).'&quot; | '; bloginfo( 'name' );
-	} elseif ( is_home() ) {
-		bloginfo( 'name' ); echo ' | '; bloginfo( 'description' );
-	}  elseif ( is_404() ) {
-		echo 'Error 404 Not Found | '; bloginfo( 'name' );
-	} elseif ( is_single() ) {
-		wp_title('');
-	} else {
-		echo wp_title(''); echo ' | '; bloginfo( 'name' );
-	} ?></title>
+  <title><?php bloginfo('name'); ?></title>
 
-	<meta name="description" content="<?php wp_title(''); echo ' &ndash; '; bloginfo( 'description' ); ?>" />
+	<meta name="description" content="<?php bloginfo('name'); echo ' &ndash; '; bloginfo( 'description' ); ?>" />
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no" />
@@ -46,7 +30,8 @@
     <script src="<?php bloginfo('template_url'); ?>/js/vendor/responsive-nav.min.js"></script>
 </head>
 
-<body <?php body_class(); ?>>
+<?php global $wp; ?>
+<body <?php body_class(); ?> <?php if( $wp->request == "selected" ) { echo 'onunload=""'; } ?>>
 
   <div class="container hdr clearfix">
     <div class="logo">KATU AGENCY</div>
