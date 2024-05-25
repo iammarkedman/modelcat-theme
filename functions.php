@@ -1,5 +1,5 @@
 <?php
-	// post thumbnail support
+	// post thumbnail support //
 	add_theme_support( 'post-thumbnails' );
 
   add_image_size( 'model-thumb', 700, 770, true );
